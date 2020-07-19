@@ -63,9 +63,9 @@ describe 'ActiveRecord Obstacle Course, Week 1' do
     #   order.amount == 500 || order.amount == 700
     # end
 
-    orders_of_700_and_1000 = Order.all.select do |order|
-      order.amount == 700 || order.amount == 1000
-    end
+    # orders_of_700_and_1000 = Order.all.select do |order|
+    #   order.amount == 700 || order.amount == 1000
+    # end
     # ------------------------------------------------------------
     orders_of_500_and_700 = Order.where(amount: [500, 700])
     orders_of_700_and_1000 = Order.where(amount: [700, 1000])
@@ -84,11 +84,12 @@ describe 'ActiveRecord Obstacle Course, Week 1' do
     expected_objects = [@item_1, @item_4, @item_2]
 
     # ----------------------- Using Ruby -------------------------
-    items = Item.all.select { |item| ids_to_find.include?(item.id) }
+    # items = Item.all.select { |item| ids_to_find.include?(item.id) }
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
     # Solution goes here
+    items = Item.order(:name).find(ids_to_find)
     # ------------------------------------------------------------
 
     # Expectation
