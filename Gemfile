@@ -14,7 +14,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'faker'
-gem 'therubyracer'
+# gem 'therubyracer'
 gem 'bootstrap-sass'
 
 group :development, :test do
@@ -35,3 +35,4 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "table_print"
