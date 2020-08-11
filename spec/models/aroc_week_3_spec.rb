@@ -39,12 +39,13 @@ describe 'ActiveRecord Obstacle Course, Week 3' do
     expected_result = ['Abercrombie', 'Giorgio Armani', 'J.crew', 'Fox']
 
     # ----------------------- Using Ruby -------------------------
-    names = Order.last.items.all.map(&:name)
-    names.sort_by! { |x| x[/\d+/].to_i }
+    # names = Order.last.items.all.map(&:name)
+    # names.sort_by! { |x| x[/\d+/].to_i }
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
     # Solution goes here
+    names = Item.joins(:orders).where(orders: {id: Order.last.id}).pluck(:name)
     # ------------------------------------------------------------
 
     # Expectation
